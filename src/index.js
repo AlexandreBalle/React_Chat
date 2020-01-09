@@ -8,6 +8,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import { IntlProvider } from 'react-intl';
+import messages_fr from "./translations/fr.json";
+import messages_en from "./translations/en.json";
 
 import App from './App';
 import * as movies from './Api';
@@ -15,7 +18,7 @@ import * as serviceWorker from './serviceWorker';
 import reducers from './redux/reducers/index';
 
 const middleware = store => next => action => {
-  console.log(action);
+  console.log(action.type);
 
   next(action);
 }
@@ -27,10 +30,19 @@ export const store = createStore(
   )
 );
 
+const messages = {
+  'fr': messages_fr,
+  'en': messages_en
+};
+
+const language = navigator.language.split(/[-_]/)[0];
+
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <IntlProvider locale={language} messages={messages[language]}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </IntlProvider>,
   document.getElementById('root')
 );
 

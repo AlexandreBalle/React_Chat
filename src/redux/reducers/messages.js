@@ -12,7 +12,7 @@ const messages = (state = INITIAL_STATE, action) => {
         messages:
           [
             ...state.messages,
-            {user: action.username, message: action.message, sentAt: new Date(action.sentAt).toLocaleString()}
+            {user: action.username, message: action.message, sentAt: new Date(action.sentAt ? action.sentAt : "").toLocaleString()}
           ],
         username: state.username,
         loading: false,
@@ -28,7 +28,7 @@ const messages = (state = INITIAL_STATE, action) => {
     case 'LOAD_MESSAGES_SUCCESS':
       return {
         messages: state.messages.concat(action.messages.map((value) => {
-          return {user: value.username, message: value.message, sentAt: new Date(value.sentAt).toLocaleString()};
+          return {user: value.username, message: value.message, sentAt: new Date(value.sentAt ? value.sentAt : "").toLocaleString()};
         })),
         username: state.username,
         loading: false,
