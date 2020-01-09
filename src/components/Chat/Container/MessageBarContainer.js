@@ -21,7 +21,7 @@ const MessageBarContainer = ({ username, addMessage }) => {
   }
 
   const handleSubmit = (event) => {
-    addMessage({username: username, message: message, sentAt: new Date().toLocaleString()});
+    addMessage({username: username, message: message, sentAt: new Date()});
     setMessage("");
     event.preventDefault();
   }

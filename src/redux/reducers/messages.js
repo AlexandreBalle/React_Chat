@@ -12,7 +12,7 @@ const messages = (state = INITIAL_STATE, action) => {
         messages:
           [
             ...state.messages,
-            {user: action.username, message: action.message, sentAt: action.sentAt}
+            {user: action.username, message: action.message, sentAt: new Date(action.sentAt).toLocaleString()}
           ],
         username: state.username,
         loading: false,

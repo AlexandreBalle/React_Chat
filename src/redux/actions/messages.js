@@ -6,7 +6,6 @@ const api   = {
 };
 
 export const addNewMessage = ({username, message, sentAt}) => {
-  console.log(sentAt)
   return (dispatch) => {
     const action = {
       type: 'ADD_MESSAGE',
