@@ -11,7 +11,7 @@ const MessageList = ({ messages, loading, error }) => {
       {
         !loading && messages && messages.length > 0 && messages.map(({user, message, sentAt}, i) =>
           <ListGroup.Item key={i}>
-            <MessageItem username={user} message={message} sentAt={sentAt}/>
+            <MessageItem username={user} message={message} sentAt={sentAt ? sentAt : ""}/>
           </ListGroup.Item>
         )
       }

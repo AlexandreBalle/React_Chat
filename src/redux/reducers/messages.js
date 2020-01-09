@@ -27,10 +27,9 @@ const messages = (state = INITIAL_STATE, action) => {
       }
     case 'LOAD_MESSAGES_SUCCESS':
       return {
-        messages:
-          action.messages.map((value) => {
-            return {user: value.username, message: value.message, sentAt: value.sentAt};
-          }),
+        messages: state.messages.concat(action.messages.map((value) => {
+          return {user: value.username, message: value.message, sentAt: new Date(value.sentAt).toLocaleString()};
+        })),
         username: state.username,
         loading: false,
         error: ""

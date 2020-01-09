@@ -28,6 +28,12 @@ body {
   position: absolute;
   margin-left: 27%;
   bottom: 0;
+  max-height: 30rem;
+}
+
+.MessageList {
+  max-height: inherit;
+  overflow-y: scroll;
 }
 
 .Login {
@@ -96,4 +102,8 @@ body {
 
 .receiver {
   background-color: #82ccdd;
+}
+
+.preview {
+  bottom: 10%;
 }

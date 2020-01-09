@@ -6,7 +6,7 @@ import MessageBarContainer from './Container/MessageBarContainer';
 
 const Chat = ({ username, messages, updateMessages }) => {
   return (
-    <div className="Chat">
+    <div className={"Chat " + (!username ? "preview" : "")}>
       <MessageListContainer messages={messages}/>
       {username && <MessageBarContainer username={username} addMessage={updateMessages}/>}
     </div>
