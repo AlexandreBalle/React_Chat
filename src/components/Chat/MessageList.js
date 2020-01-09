@@ -9,9 +9,9 @@ const MessageList = ({ messages, loading, error }) => {
     <div className="MessageList">
       <ListGroup>
       {
-        !loading && messages && messages.length > 0 && messages.map(({user, message}, i) =>
+        !loading && messages && messages.length > 0 && messages.map(({user, message, sentAt}, i) =>
           <ListGroup.Item key={i}>
-            <MessageItem username={user} message={message}/>
+            <MessageItem username={user} message={message} sentAt={sentAt}/>
           </ListGroup.Item>
         )
       }

@@ -5,12 +5,14 @@ const api   = {
   url: "https://my-json-server.typicode.com/tlenclos/formation-react-fake-server/messages"
 };
 
-export const addNewMessage = ({username, message}) => {
+export const addNewMessage = ({username, message, sentAt}) => {
+  console.log(sentAt)
   return (dispatch) => {
     const action = {
       type: 'ADD_MESSAGE',
       username,
-      message
+      message,
+      sentAt
     };
     websocket.send(JSON.stringify(action));
 

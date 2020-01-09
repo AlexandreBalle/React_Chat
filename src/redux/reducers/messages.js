@@ -12,7 +12,7 @@ const messages = (state = INITIAL_STATE, action) => {
         messages:
           [
             ...state.messages,
-            {user: action.username, message: action.message}
+            {user: action.username, message: action.message, sentAt: action.sentAt}
           ],
         username: state.username,
         loading: false,
@@ -29,7 +29,7 @@ const messages = (state = INITIAL_STATE, action) => {
       return {
         messages:
           action.messages.map((value) => {
-            return {user: value.username, message: value.message};
+            return {user: value.username, message: value.message, sentAt: value.sentAt};
           }),
         username: state.username,
         loading: false,
